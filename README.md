@@ -5,12 +5,8 @@
 
 Develop, test and execute puppeteer scripts from browser's developer tools.
 
-<br>
-
 ## Installation
 This extension is published on chrome web store. [Click here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid) to view extension on chrome web store.
-
-<br>
 
 ## Usage
 
