@@ -1,0 +1,10 @@
+{
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "node/no-extraneous-require": [2, {
+        "allowModules": ["terser-webpack-plugin"]
+    }],
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-empty-interface": 0
+  }
+}

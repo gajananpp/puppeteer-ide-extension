@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Puppeteer IDE",
+    "version": "0.0.0.1",
+    "author": "Gajanan Patil",
+    "homepage_url": "https://github.com/gajananpp/puppeteer-ide-extension",
+    "description": "Develop, test and execute puppeteer scripts from browser's developer tools.",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "sandbox": {
+        "pages": ["devtools/sandbox/sandbox.html"]
+    },
+    "permissions": [
+        "debugger"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "devtools_page": "devtools/devtools.html",
+    "icons": {
+        "16": "pptr.png",
+        "32": "pptr.png",
+        "48": "pptr.png",
+        "128": "pptr.png",
+        "256": "pptr.png"
+    }
+}

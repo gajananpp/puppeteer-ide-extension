@@ -1,0 +1,48 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+#ide {
+    height: 100%;
+    width: 100%;
+}
+
+#editor {
+    height: 100%;
+}
+
+#action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+    background-color: #ececec;
+    color: #000000;
+
+    & > span {
+        height: inherit;
+        padding: 5px;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
+
+    &.dark {
+        background-color: #2e2d2d;
+        color: #ffffff;
+
+        & > span:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    }
+}
