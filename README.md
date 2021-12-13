@@ -14,17 +14,31 @@ This extension is published on chrome web store. [Click here](https://chrome.goo
 
 ## Usage
 
-This extension will add an extra tab named "Puppeteer IDE" in browser's developer tools from where you can write and execute puppeteer script.
+This extension will add an extra tab named "Puppeteer IDE" in browser's developer tools from where you can write and execute puppeteer scripts.
 
-You can access [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. On clicking `Execute` button, the script will be executed on the inspected tab.
+You can access [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. 
 
-The editor will take the theme of developer tools. [Here is the guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
+On clicking `Execute` button, the script will be executed on the inspected tab.
+
+The script will be auto saved as you are editing it.
+
+The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
+
+Sample GIF :-
 
 ![Sample GIF](assets/pptr-ide-extension.gif)
 
 <br>
 
-In the [assets](assets) folder you can check screenshots and gif of this extension being used.
+## Screenshots
+
+Dark theme :- 
+![Dark theme](assets/screenshots/screen-1.png)
+
+<br>
+
+Light theme :- 
+![Light theme](assets/screenshots/screen-2.png)
 
 <br>
 
