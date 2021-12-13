@@ -24,19 +24,15 @@ Sample GIF :-
 
 ![Sample GIF](assets/pptr-ide-extension.gif)
 
-<br>
-
 ## Screenshots
 
 Dark theme :- 
 ![Dark theme](assets/screenshots/screen-1.png)
 
-<br>
 
 Light theme :- 
 ![Light theme](assets/screenshots/screen-2.png)
 
-<br>
 
 ## Build From Source
 
@@ -52,7 +48,6 @@ npm run dist
 ```
 This will output extension in dist folder which you can load in your browser by following this [steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/#:~:text=The%20directory%20holding%20the%20manifest%20file%20can%20be%20added%20as%20an%20extension%20in%20developer%20mode%20in%20its%20current%20state.).
 
-<br>
 
 ## FAQ
 
