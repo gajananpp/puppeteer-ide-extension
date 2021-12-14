@@ -1,9 +1,25 @@
+<div align="center">
+
 # Puppeteer IDE Extension
 
 ![lint](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/lint.yml/badge.svg) 
 ![build](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/build.yml/badge.svg) 
 
 A standalone extension to develop, test and execute puppeteer scripts from browser's developer tools.
+
+[Installation](#installation) •
+[Usage](#usage) •
+[Screenshots](#screenshots) •
+[Privacy](#privacy) •
+[Build From Source](#build-from-source) •
+[FAQs](#faq)
+
+<img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800"/>
+
+
+</div>
+
+
 
 ## Installation
 This extension is published on chrome web store. [Click here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid) to view extension on chrome web store.
@@ -18,13 +34,9 @@ On clicking `Execute` button, the script will be executed on the inspected tab.
 
 The script will be auto saved as you are editing it.
 
-The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
-
-Sample GIF :-
-
-![Sample GIF](assets/pptr-ide-extension.gif)
-
 ## Screenshots
+
+The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
 
 Dark theme :- 
 ![Dark theme](assets/screenshots/screen-1.png)
