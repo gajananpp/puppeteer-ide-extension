@@ -3,7 +3,7 @@
 ![lint](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/lint.yml/badge.svg) 
 ![build](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/build.yml/badge.svg) 
 
-Develop, test and execute puppeteer scripts from browser's developer tools.
+A standalone extension to develop, test and execute puppeteer scripts from browser's developer tools.
 
 ## Installation
 This extension is published on chrome web store. [Click here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid) to view extension on chrome web store.
