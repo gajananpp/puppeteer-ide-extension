@@ -80,7 +80,7 @@ class DebuggerHandler {
     DebuggerHandler.isExecuting = true;
     this.tabId = tabId;
     this.transport = transport;
-    this.transport.delay = 0.1 * 1000;
+    this.transport.delay = 0.05 * 1000;
     this._registerListeners();
   }
 
