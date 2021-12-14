@@ -25,9 +25,9 @@ export interface ConnectionEvent {
 }
 
 export interface ConsoleCommand {
-  type: 'console',
-  level: 'log' | 'error'
-  args: string
+  type: 'console';
+  level: 'log' | 'error';
+  args: string;
 }
 
 export type Message =

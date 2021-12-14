@@ -93,8 +93,10 @@ export const IDE = (props: IDEProps) => {
         // forward cdp command coming from sandbox to service worker
         port?.postMessage(message.data);
       } else if (message.data.type === 'console') {
-        const consoleCommand = message.data
-        chrome.devtools.inspectedWindow.eval(`console.${consoleCommand.level}(...${consoleCommand.args})`)
+        const consoleCommand = message.data;
+        chrome.devtools.inspectedWindow.eval(
+          `console.${consoleCommand.level}(...${consoleCommand.args})`
+        );
       }
     };
     window.addEventListener('message', windowMessageHandler);
