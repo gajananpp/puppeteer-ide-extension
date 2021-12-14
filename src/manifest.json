@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Puppeteer IDE",
-    "version": "0.0.0.2",
+    "version": "0.0.0.3",
     "author": "Gajanan Patil",
     "homepage_url": "https://github.com/gajananpp/puppeteer-ide-extension",
     "description": "Develop, test and execute puppeteer scripts from browser's developer tools.",
