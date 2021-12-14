@@ -39,11 +39,11 @@ The script will be auto saved as you are editing it.
 The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
 
 Dark theme :- 
-![Dark theme](assets/screenshots/screen-1.png)
+![Dark theme](assets/screenshots/screen-1.webp)
 
 
 Light theme :- 
-![Light theme](assets/screenshots/screen-2.png)
+![Light theme](assets/screenshots/screen-2.webp)
 
 
 ## Build From Source
