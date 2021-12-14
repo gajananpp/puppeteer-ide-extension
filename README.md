@@ -48,6 +48,9 @@ npm run dist
 ```
 This will output extension in dist folder which you can load in your browser by following this [steps](https://developer.chrome.com/docs/extensions/mv3/getstarted/#:~:text=The%20directory%20holding%20the%20manifest%20file%20can%20be%20added%20as%20an%20extension%20in%20developer%20mode%20in%20its%20current%20state.).
 
+## Privacy
+This extension is standalone. **It doesn't make any external api calls**. You can inspect network of page/extension and source code in this repo.
+
 
 ## FAQ
 
@@ -59,7 +62,7 @@ No. This extension internally uses [chrome.debugger](https://developer.chrome.co
 
 **Q: On which browsers can this extension be installed ?**
 <br>
-This extension only works with chrome and other chromium based browsers like edge/brave.
+This extension only works with chrome and other chromium based browsers like edge, brave etc.
 
 <br>
 
