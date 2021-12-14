@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import {Message} from '../../background';
 import {IDE} from './components/IDE';
@@ -6,25 +6,35 @@ import {IDEContext, IDEContextProps} from './components/IDEContext';
 
 import './idePanel.scss';
 
-interface AppProps extends IDEContextProps {}
 
-function App(props: AppProps) {
+function App() {
   const theme =
     chrome.devtools?.panels?.themeName === 'default' ? 'light' : 'dark';
 
+  const [port, setPort] = useState<chrome.runtime.Port | null>(null)
+
+  const connectPort = () => {
+    const port = chrome.runtime.connect({
+      name: `${chrome.devtools.inspectedWindow.tabId}`,
+    });
+    setPort(port)
+    port.onDisconnect.addListener(() => {
+        setTimeout(() => connectPort(), 1 * 1000)
+    })
+  }
+
+  useEffect(() => {
+    connectPort()
+  }, [])
+
   return (
-    <IDEContext.Provider value={props}>
+    <IDEContext.Provider value={{
+      port: port,
+      setPort: setPort
+    }}>
       <IDE theme={theme}></IDE>
     </IDEContext.Provider>
   );
 }
 
-const port = chrome.runtime.connect({
-  name: `${chrome.devtools.inspectedWindow.tabId}`,
-});
-
-port.onMessage.addListener((message: Message) => {
-  if (message.type === 'connected') {
-    ReactDOM.render(<App port={port}></App>, document.querySelector('#ide'));
-  }
-});
+ReactDOM.render(<App></App>, document.querySelector('#ide'));

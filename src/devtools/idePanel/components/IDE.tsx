@@ -95,7 +95,7 @@ export const IDE = (props: IDEProps) => {
       port?.onMessage.removeListener(portMessageHandler);
       window.removeEventListener('message', windowMessageHandler);
     };
-  }, [script]);
+  }, [script, port]);
 
   return (
     <>
