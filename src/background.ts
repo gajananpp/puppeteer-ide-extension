@@ -24,9 +24,16 @@ export interface ConnectionEvent {
   type: 'connected';
 }
 
+export interface ConsoleCommand {
+  type: 'console',
+  level: 'log' | 'error'
+  args: string
+}
+
 export type Message =
   | ExecutionCommand
   | CDPCommand
+  | ConsoleCommand
   | CDPEvent
   | ExecutionEvent
   | ConnectionEvent;
