@@ -14,7 +14,7 @@ A standalone extension to develop, test and execute puppeteer scripts from brows
 [Build From Source](#build-from-source) •
 [FAQs](#faq)
 
-<img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800"/>
+<img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" />
 
 
 </div>
@@ -22,7 +22,14 @@ A standalone extension to develop, test and execute puppeteer scripts from brows
 
 
 ## Installation
-This extension is published on chrome web store. [Click here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid) to view extension on chrome web store.
+This extension is published on chrome web store.
+
+<a class="btn" href="https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid" style="width: 250px;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+<svg viewbox="0 0 192 192" style="width: 50px;"><defs><path id="a" d="M8 20v140c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12V20H8zm108 32H76c-4.42 0-8-3.58-8-8s3.58-8 8-8h40c4.42 0 8 3.58 8 8s-3.58 8-8 8z"></path></defs><clippath id="b"><use xlink:href="#a" overflow="visible"></use></clippath><path clip-path="url(#b)" fill="#eee" d="M8 20h176v152H8z"></path><path fill="#fff" d="M116 36H76c-4.42 0-8 3.58-8 8s3.58 8 8 8h40c4.42 0 8-3.58 8-8s-3.58-8-8-8z" clip-path="url(#b)"></path><g clip-path="url(#b)"><defs><circle id="c" cx="96" cy="160" r="76"></circle></defs><clippath id="d"><use xlink:href="#c" overflow="visible"></use></clippath><path d="M32.07 84v93.27h34.01L96 125.45h76V84zm0 0v93.27h34.01L96 125.45h76V84z" clip-path="url(#d)" fill="#DB4437"></path><path d="M20 236h72.34l33.58-33.58v-25.14l-59.84-.01L20 98.24zm0 0h72.34l33.58-33.58v-25.14l-59.84-.01L20 98.24z" clip-path="url(#d)" fill="#0F9D58"></path><path d="M96 125.45l29.92 51.82L92.35 236H172V125.45zm0 0l29.92 51.82L92.35 236H172V125.45z" clip-path="url(#d)" fill="#FFCD40"></path></g><g clip-path="url(#d)"><circle fill="#F1F1F1" cx="96" cy="160" r="34.55"></circle><circle fill="#4285F4" cx="96" cy="160" r="27.64"></circle></g><path clip-path="url(#b)" fill="#212121" fill-opacity=".05" d="M8 20h176v76H8z"></path><path fill="#212121" fill-opacity=".02" d="M8 95h176v1H8z"></path><path fill="#fff" fill-opacity=".05" d="M8 96h176v1H8z"></path><path fill="#212121" fill-opacity=".02" d="M116 52H76c-4.25 0-7.72-3.32-7.97-7.5-.02.17-.03.33-.03.5 0 4.42 3.58 8 8 8h40c4.42 0 8-3.58 8-8 0-.17-.01-.33-.03-.5-.25 4.18-3.72 7.5-7.97 7.5zM8 20v1h176v-1H8z"></path><path fill="#231F20" fill-opacity=".1" d="M76 36h40c4.25 0 7.72 3.32 7.97 7.5.01-.17.03-.33.03-.5 0-4.42-3.58-8-8-8H76c-4.42 0-8 3.58-8 8 0 .17.01.33.03.5.25-4.18 3.72-7.5 7.97-7.5zm96 135H20c-6.6 0-12-5.4-12-12v1c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12v-1c0 6.6-5.4 12-12 12z"></path><radialgradient id="e" cx="7.502" cy="19.344" r="227.596" gradientunits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></radialgradient><path fill="url(#e)" d="M8 20v140c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12V20H8zm108 32H76c-4.42 0-8-3.58-8-8s3.58-8 8-8h40c4.42 0 8 3.58 8 8s-3.58 8-8 8z"></path><path fill="none" d="M0 0h192v192H0z"></path></svg>
+  <div style="display: flex;flex-direction: column;justify-content: space-around;align-items: center;">
+  <span style="font-weight: lighter;font-size: 12px;">Add from</span><span style="white-space: nowrap;font-weight: bold;font-size: 18px;">Chrome Web Store</span>   
+  </div>
+</a>
 
 ## Usage
 
@@ -39,11 +46,12 @@ The script will be auto saved as you are editing it.
 The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
 
 Dark theme :- 
-![Dark theme](assets/screenshots/screen-1.webp)
+<img alt="Dark Theme" src="assets/screenshots/screen-1.webp" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" />
 
+<br>
 
 Light theme :- 
-![Light theme](assets/screenshots/screen-2.webp)
+<img alt="Light Theme" src="assets/screenshots/screen-2.webp" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" />
 
 
 ## Build From Source
@@ -87,7 +95,15 @@ You can disable this extension and try again executing.
 
 **Q: From where can this extension be installed ?**
 <br>
-This extension is published on chrome web store. You can add this extension from [here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid). 
+This extension is published on chrome web store.
+
+<a class="btn" href="https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid" style="width: 250px;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+<svg viewbox="0 0 192 192" style="width: 50px;"><defs><path id="a" d="M8 20v140c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12V20H8zm108 32H76c-4.42 0-8-3.58-8-8s3.58-8 8-8h40c4.42 0 8 3.58 8 8s-3.58 8-8 8z"></path></defs><clippath id="b"><use xlink:href="#a" overflow="visible"></use></clippath><path clip-path="url(#b)" fill="#eee" d="M8 20h176v152H8z"></path><path fill="#fff" d="M116 36H76c-4.42 0-8 3.58-8 8s3.58 8 8 8h40c4.42 0 8-3.58 8-8s-3.58-8-8-8z" clip-path="url(#b)"></path><g clip-path="url(#b)"><defs><circle id="c" cx="96" cy="160" r="76"></circle></defs><clippath id="d"><use xlink:href="#c" overflow="visible"></use></clippath><path d="M32.07 84v93.27h34.01L96 125.45h76V84zm0 0v93.27h34.01L96 125.45h76V84z" clip-path="url(#d)" fill="#DB4437"></path><path d="M20 236h72.34l33.58-33.58v-25.14l-59.84-.01L20 98.24zm0 0h72.34l33.58-33.58v-25.14l-59.84-.01L20 98.24z" clip-path="url(#d)" fill="#0F9D58"></path><path d="M96 125.45l29.92 51.82L92.35 236H172V125.45zm0 0l29.92 51.82L92.35 236H172V125.45z" clip-path="url(#d)" fill="#FFCD40"></path></g><g clip-path="url(#d)"><circle fill="#F1F1F1" cx="96" cy="160" r="34.55"></circle><circle fill="#4285F4" cx="96" cy="160" r="27.64"></circle></g><path clip-path="url(#b)" fill="#212121" fill-opacity=".05" d="M8 20h176v76H8z"></path><path fill="#212121" fill-opacity=".02" d="M8 95h176v1H8z"></path><path fill="#fff" fill-opacity=".05" d="M8 96h176v1H8z"></path><path fill="#212121" fill-opacity=".02" d="M116 52H76c-4.25 0-7.72-3.32-7.97-7.5-.02.17-.03.33-.03.5 0 4.42 3.58 8 8 8h40c4.42 0 8-3.58 8-8 0-.17-.01-.33-.03-.5-.25 4.18-3.72 7.5-7.97 7.5zM8 20v1h176v-1H8z"></path><path fill="#231F20" fill-opacity=".1" d="M76 36h40c4.25 0 7.72 3.32 7.97 7.5.01-.17.03-.33.03-.5 0-4.42-3.58-8-8-8H76c-4.42 0-8 3.58-8 8 0 .17.01.33.03.5.25-4.18 3.72-7.5 7.97-7.5zm96 135H20c-6.6 0-12-5.4-12-12v1c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12v-1c0 6.6-5.4 12-12 12z"></path><radialgradient id="e" cx="7.502" cy="19.344" r="227.596" gradientunits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"></stop><stop offset="1" stop-color="#fff" stop-opacity="0"></stop></radialgradient><path fill="url(#e)" d="M8 20v140c0 6.6 5.4 12 12 12h152c6.6 0 12-5.4 12-12V20H8zm108 32H76c-4.42 0-8-3.58-8-8s3.58-8 8-8h40c4.42 0 8 3.58 8 8s-3.58 8-8 8z"></path><path fill="none" d="M0 0h192v192H0z"></path></svg>
+  <div style="display: flex;flex-direction: column;justify-content: space-around;align-items: center;">
+  <span style="font-weight: lighter;font-size: 12px;">Add from</span><span style="white-space: nowrap;font-weight: bold;font-size: 18px;">Chrome Web Store</span>   
+  </div>
+</a>
+
 
 <br>
 
