@@ -68,7 +68,7 @@ This extension is standalone. **It doesn't make any external api calls**. You ca
 
 **Q: Does this extension have any external dependency ?**
 <br>
-No. This extension internally uses [chrome.debugger](https://developer.chrome.com/docs/extensions/reference/debugger/) api and is standalone, so there is no requirement of starting browser with remote debugging cli flag or having nodejs or any other service installed. 
+No. This extension internally uses [chrome.debugger](https://developer.chrome.com/docs/extensions/reference/debugger/) api and is standalone, so there is no requirement of starting browser with remote debugging cli flag or having nodejs or any other service running. 
 
 <br>
 
@@ -80,7 +80,7 @@ This extension only works with chrome and other chromium based browsers like edg
 
 **Q: Execution stops abruptly when page navigates ?**
 <br>
-Some other extensions may cause this issue, especially 3rd party extensions which are added by desktop applications and not by user from chrome web store. One particular extension is `Adobe Acrobat` which is added by Adobe's desktop application.
+Some other extensions may cause this issue, especially 3rd party extensions which are added by desktop applications. One particular extension is `Adobe Acrobat` which is added by Adobe's desktop application.
 You can disable this extension and try again executing.
 
 <br>
