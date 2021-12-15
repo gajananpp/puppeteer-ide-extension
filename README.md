@@ -22,7 +22,9 @@ A standalone extension to develop, test and execute puppeteer scripts from brows
 
 
 ## Installation
-This extension is published on chrome web store. [Click here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid) to view extension on chrome web store.
+This extension is published on chrome web store.
+
+[![Add from Chrome web store](assets/chrome-web-store-btn.png)](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid)
 
 ## Usage
 
@@ -87,7 +89,9 @@ You can disable this extension and try again executing.
 
 **Q: From where can this extension be installed ?**
 <br>
-This extension is published on chrome web store. You can add this extension from [here](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid). 
+This extension is published on chrome web store.
+
+[![Add from Chrome web store](assets/chrome-web-store-btn.png)](https://chrome.google.com/webstore/detail/puppeteer-ide/ilehdekjacappgghkgmmlbhgbnlkgoid)
 
 <br>
 
