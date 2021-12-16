@@ -14,22 +14,30 @@ export async function executeScript(
 ) {
   const console = {
     log: (...args: any[]) => {
-      window.console.log(...args);
-      const consoleCmd: ConsoleCommand = {
-        type: 'console',
-        level: 'log',
-        args: JSON.stringify(args),
-      };
-      source.postMessage(consoleCmd, '*' as any);
+      try {
+        window.console.log(...args);
+        const consoleCmd: ConsoleCommand = {
+          type: 'console',
+          level: 'log',
+          args: JSON.stringify(args),
+        };
+        source.postMessage(consoleCmd, '*' as any);  
+      } catch (e) {
+        null
+      }
     },
     error: (...args: any[]) => {
-      window.console.error(...args);
-      const consoleCmd: ConsoleCommand = {
-        type: 'console',
-        level: 'error',
-        args: JSON.stringify(args),
-      };
-      source.postMessage(consoleCmd, '*' as any);
+      try {
+        window.console.error(...args);
+        const consoleCmd: ConsoleCommand = {
+          type: 'console',
+          level: 'error',
+          args: JSON.stringify(args),
+        };
+        source.postMessage(consoleCmd, '*' as any);  
+      } catch (e) {
+        null
+      }
     },
   };
   const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
@@ -46,14 +54,15 @@ export async function executeScript(
     // },
   });
 
+  const [page] = await browser.pages();
+
   const close = async () => {
     if (!page.isClosed()) {
       await page.close();
       await browser.close();
     }
   };
-
-  const [page] = await browser.pages();
+  
   try {
     await executor(page, console);
     await close();
