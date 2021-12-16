@@ -67,6 +67,9 @@ class DebuggerHandler {
   transport: ExtensionDebuggerTransport;
   tabId: number;
 
+  commands: {command: any; response: any}[];
+  events: any[];
+
   /**
    * Starts debugger session, executes incoming cdp commands on target tab
    * and emits events/responses back to command sender
@@ -88,6 +91,10 @@ class DebuggerHandler {
     this.tabId = tabId;
     this.transport = transport;
     this.transport.delay = 0.05 * 1000;
+
+    this.commands = [];
+    this.events = [];
+
     this._registerListeners();
   }
 
@@ -101,6 +108,16 @@ class DebuggerHandler {
       };
       // send response/instrumentation event back
       port?.postMessage(cdpEvent);
+      const parsedEvent = JSON.parse(message);
+      if (parsedEvent.id) {
+        // event is a response if contains `id` property which corresponds to a command
+        const cmdIdx = this.commands.findIndex(
+          commandObj => commandObj.command.id === parsedEvent.id
+        );
+        cmdIdx !== -1 ? (this.commands[cmdIdx].response = parsedEvent) : null;
+      } else {
+        this.events.push(parsedEvent);
+      }
     };
 
     this.transport.onclose = () => {
@@ -111,6 +128,12 @@ class DebuggerHandler {
         tabId: this.tabId,
       };
       port?.postMessage(executionEvent);
+
+      console.log('CDP LOGS');
+      console.log({
+        commands: this.commands,
+        events: this.events,
+      });
     };
 
     this._incomingMessageHandler = this._incomingMessageHandler.bind(this);
@@ -135,6 +158,11 @@ class DebuggerHandler {
     if (message.type === 'cdpCommand') {
       // pass command to chrome.debugger
       this.transport.send(message.command);
+
+      this.commands.push({
+        command: JSON.parse(message.command),
+        response: {},
+      });
     } else if (message.type === 'stopExecution') {
       this.transport.close();
     }

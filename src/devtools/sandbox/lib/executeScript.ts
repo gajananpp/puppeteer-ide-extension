@@ -21,9 +21,9 @@ export async function executeScript(
           level: 'log',
           args: JSON.stringify(args),
         };
-        source.postMessage(consoleCmd, '*' as any);  
+        source.postMessage(consoleCmd, '*' as any);
       } catch (e) {
-        null
+        null;
       }
     },
     error: (...args: any[]) => {
@@ -34,9 +34,9 @@ export async function executeScript(
           level: 'error',
           args: JSON.stringify(args),
         };
-        source.postMessage(consoleCmd, '*' as any);  
+        source.postMessage(consoleCmd, '*' as any);
       } catch (e) {
-        null
+        null;
       }
     },
   };
@@ -62,7 +62,7 @@ export async function executeScript(
       await browser.close();
     }
   };
-  
+
   try {
     await executor(page, console);
     await close();
