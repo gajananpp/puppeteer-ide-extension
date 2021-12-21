@@ -32,10 +32,7 @@ const initialScript = [
  * @returns IDE component
  */
 export const IDE = (props: IDEProps) => {
-  const storedScript = localStorage.getItem('script');
-  const [script, setScript] = useState<string>(
-    storedScript?.trim().length ? storedScript : initialScript
-  );
+  const [script, setScript] = useState<string>('');
 
   const [isExecuting, setIsExecuting] = useState<boolean>(false);
 
@@ -45,7 +42,9 @@ export const IDE = (props: IDEProps) => {
 
   const onEditorContentChange = (value: string) => {
     setScript(value);
-    localStorage.setItem('script', value);
+    chrome.storage.local.set({
+      script: value,
+    });
   };
 
   const execute = () => {
@@ -72,6 +71,16 @@ export const IDE = (props: IDEProps) => {
       sandboxFrame.contentWindow?.postMessage(executeCommand, '*');
     }
   };
+
+  useEffect(() => {
+    const getStoredScript = async () => {
+      const storedScript = await chrome.storage.local.get('script');
+      storedScript?.script?.trim()?.length
+        ? setScript(storedScript.script)
+        : setScript(initialScript);
+    };
+    getStoredScript();
+  }, []);
 
   useEffect(() => {
     const portMessageHandler = (message: Message) => {
