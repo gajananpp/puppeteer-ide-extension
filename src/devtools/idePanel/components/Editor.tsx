@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import * as monaco from 'monaco-editor';
 
 interface EditorProps {
@@ -9,7 +9,7 @@ interface EditorProps {
   /** editor theme */
   theme?: 'light' | 'dark';
   /** default value to show in editor */
-  defaultValue?: string;
+  defaultValue: string;
 }
 
 (self as any).MonacoEnvironment = {
@@ -31,6 +31,9 @@ interface EditorProps {
 export const Editor = (props: EditorProps) => {
   const editorContainer = useRef<HTMLDivElement>(null);
 
+  const [editor, setEditor] =
+    useState<monaco.editor.IStandaloneCodeEditor | null>(null);
+
   useEffect(() => {
     if (editorContainer.current) {
       props.extraTypeDefs?.forEach(typeDef => {
@@ -43,7 +46,7 @@ export const Editor = (props: EditorProps) => {
         language: 'javascript',
         theme: props.theme === 'light' ? 'vs' : 'vs-dark',
       });
-
+      setEditor(editor);
       editor.onDidChangeModelContent(() => props.onChange(editor.getValue()));
 
       const windowResizeHandler = () => {
@@ -59,6 +62,13 @@ export const Editor = (props: EditorProps) => {
       return () => {};
     }
   }, []);
+
+  useEffect(() => {
+    // update only once
+    if (editor && !editor.getValue().trim().length) {
+      editor.setValue(props.defaultValue);
+    }
+  }, [props.defaultValue]);
 
   return <div id="editor" ref={editorContainer}></div>;
 };

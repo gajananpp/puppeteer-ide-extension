@@ -1,6 +1,6 @@
 {
   "name": "puppeteer-ide-extension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Develop, test and execute puppeteer scripts in browser's developer tools",
   "files": [
     "build/src"
