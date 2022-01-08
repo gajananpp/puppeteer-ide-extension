@@ -1,6 +1,6 @@
 <div align="center">
 
-# Puppeteer IDE Extension [![Twitter URL](https://img.shields.io/twitter/url?label=Tweet&style=social&url=https%3A%2F%2Fgithub.com%2Fgajananpp%2Fpuppeteer-ide-extension)](https://twitter.com/intent/tweet?text=Quickly%20write%20and%20execute%20puppeteer%20scripts%20without%20leaving%20browser%20%F0%9F%8F%8E%F0%9F%8F%81%0A%0A%23javascript%0A%0A&url=https%3A%2F%2Fgithub.com%2Fgajananpp%2Fpuppeteer-ide-extension)
+# Puppeteer IDE Extension
 
 ![lint](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/lint.yml/badge.svg) 
 ![build](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/build.yml/badge.svg) 
