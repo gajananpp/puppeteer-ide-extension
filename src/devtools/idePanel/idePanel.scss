@@ -1,4 +1,10 @@
-html, body {
+@import "~bootstrap/scss/bootstrap";
+
+html {
+ font-size: 80%;
+}
+
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -13,36 +19,120 @@ html, body {
     height: 100%;
 }
 
-#action-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    background-color: #ececec;
-    color: #000000;
+iframe {
+    display: none;
+}
 
-    & > span {
-        height: inherit;
-        padding: 5px;
-        cursor: pointer;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        &:hover {
-            background-color: #ffffff;
-            color: #000000;
+// dark theme
+
+.action-bar-dark {
+    background-color: #323233;
+
+    a, span {
+        color: #8d8d8e;
+
+        &:active {
+            color: #8d8d8e;
+        }
+    }
+}
+
+.tab-bar-dark {
+    background-color: #262526;
+    border-color: #262526;
+
+    .nav-link {
+        background-color: #2d2d2d;
+        border-left: 2px solid #262526;
+        color: #969696;
+
+        &:is(:hover, :focus) {
+            border-color: #2d2d2d;
         }
     }
 
-    &.dark {
-        background-color: #2e2d2d;
+    .nav-link.active {
+        background-color: #1e1e1e;
+        border-color: #1e1e1e;
         color: #ffffff;
+    }
+}
 
-        & > span:hover {
-            background-color: #000000;
-            color: #ffffff;
+.modal-dark {
+    background-color: #262526;
+
+    div {
+        color: #8d8d8e;
+        border-color: #474747;
+    }
+
+    input[type=text] {
+        background-color: #3c3c3c;
+        border: none;
+        color: #8d8d8e;
+
+        &:focus {
+            background-color: #3c3c3c;
+            border-color: #245779;
+            color: #cccccc;
+        }
+    }
+}
+
+
+// light theme
+
+.action-bar-light {
+    background-color: #e5e5e5;
+
+    a, span {
+        color: #767676;
+
+        &:active {
+            color: #767676;
+        }
+    }
+}
+
+.tab-bar-light {
+    background-color: #f3f3f3;
+    border-color: #f3f3f3;
+
+    .nav-link {
+        background-color: #ececec;
+        border-left: 2px solid #f3f3f3;
+        color: #969696;
+
+        &:is(:hover, :focus) {
+            border-color: #ececec;
+        }
+    }
+
+    .nav-link.active {
+        background-color: #ffffff;
+        border-color: #ffffff;
+        color: #333333;
+    }
+}
+
+.modal-light {
+    background-color: #f3f3f3;
+
+    div {
+        color: #767676;
+        border-color: #d1d1d1;
+    }
+
+    input[type=text] {
+        background-color: #ffffff;
+        border: none;
+        color: #767676;
+
+        &:focus {
+            background-color: #ffffff;
+            border-color: #245779;
+            color: #616161;
         }
     }
 }

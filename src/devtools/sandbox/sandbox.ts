@@ -2,6 +2,7 @@ import {executeScript} from './lib/executeScript';
 
 export interface ExecuteScriptCommand {
   type: 'executeScript';
+  /** script to execute */
   script: string;
 }
 

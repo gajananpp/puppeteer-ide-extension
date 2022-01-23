@@ -1,3 +1,6 @@
+/**
+ * Adds Puppeteer IDE panel in devtools window.
+ */
 function addIDEPanel() {
   chrome.devtools.panels.create(
     'Puppeteer IDE',

@@ -10,8 +10,9 @@ A standalone extension to develop, test and execute puppeteer scripts from brows
 [Installation](#installation) •
 [Usage](#usage) •
 [Screenshots](#screenshots) •
-[Privacy](#privacy) •
 [Build From Source](#build-from-source) •
+[Privacy](#privacy) •
+[Todo](#todo) •
 [FAQs](#faq)
 
 <img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800"/>
@@ -38,8 +39,6 @@ The script will be auto saved as you are editing it.
 
 ## Screenshots
 
-The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
-
 Dark theme :- 
 ![Dark theme](assets/screenshots/screen-1.webp)
 
@@ -64,6 +63,16 @@ This will output extension in dist folder which you can load in your browser by 
 
 ## Privacy
 This extension is standalone. **It doesn't make any external api calls**. You can inspect network of page/extension and source code in this repo.
+
+## Todo
+
+- [x] Add multi tab/script support.
+- [x] Add theme switch.
+- [x] Print unhandled errors in console tab of inspected window.
+- [ ] Binding keyboard shortcut with script for execution with devtools opened.
+- [ ] Suggesting xPath of currently selected element when `$0` typed in editor.
+- [ ] Adjustable delay in execution.
+- [ ] Show used / available when chrome storage space.
 
 
 ## FAQ
