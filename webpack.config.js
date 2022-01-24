@@ -85,7 +85,9 @@ const prodConfig = {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          mangle: true,
+          mangle: {
+            reserved: ['getElementSelector'],
+          },
         },
       }),
     ],

@@ -1,7 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Nav from 'react-bootstrap/Nav';
 import NavBar from 'react-bootstrap/NavBar';
 import Container from 'react-bootstrap/Container';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import {FaPlay, FaPlus, FaCog, FaStop} from 'react-icons/fa';
 
 import {IDEContext} from './IDEContext';
@@ -10,6 +12,9 @@ import {AddScriptDialog} from './AddScriptDialog';
 import {ThemeSwitch} from './ThemeSwitch';
 import {ScriptSettingDialog} from './ScriptSettingDialog';
 import {ScriptSelect} from './ScriptSelect';
+
+const CTRL_KEY = navigator.userAgent.includes('Windows') ? 'Ctrl' : '⌘';
+// const SHIFT_KEY = navigator.userAgent.includes('Windows') ? 'Shift' : '⇧';
 
 interface ActionBarProps {
   /** Execution triggerer */
@@ -39,10 +44,15 @@ export const ActionBar = (props: ActionBarProps) => {
     script: props.scripts[0],
   });
   const openScriptSettingDialog = () => {
-    setScriptSetting({
-      ...scriptSetting,
-      show: true,
-    });
+    const script = props.scripts.find(
+      script => script.id === props.activeTab?.scriptId
+    );
+    if (props.activeTab && script) {
+      setScriptSetting({
+        show: true,
+        script: script,
+      });
+    }
   };
   const closeScriptSettingDialog = () => {
     setScriptSetting({
@@ -51,11 +61,42 @@ export const ActionBar = (props: ActionBarProps) => {
     });
   };
 
-  const NavLinkWrapper = (props: {children: (JSX.Element | string)[]}) => {
+  // register shortcuts
+  useEffect(() => {
+    const shortcuts = (evt: KeyboardEvent) => {
+      if (evt.ctrlKey || evt.metaKey) {
+        switch (evt.key) {
+          case '1':
+            openAddScriptDialog();
+            break;
+
+          case '2':
+            props.isExecuting ? props.stop() : props.execute();
+            break;
+
+          case '3':
+            openScriptSettingDialog();
+            break;
+        }
+      }
+    };
+    document.addEventListener('keydown', shortcuts);
+    return () => document.removeEventListener('keydown', shortcuts);
+  }, [props]);
+
+  const NavLinkWrapper = (props: {
+    children: (JSX.Element | string)[];
+    title: JSX.Element | string;
+  }) => {
     return (
-      <Nav.Link className="d-flex justify-content-around align-items-center">
-        {props.children}
-      </Nav.Link>
+      <OverlayTrigger
+        placement="bottom"
+        overlay={<Tooltip>{props.title}</Tooltip>}
+      >
+        <Nav.Link className="d-flex justify-content-around align-items-center">
+          {props.children}
+        </Nav.Link>
+      </OverlayTrigger>
     );
   };
 
@@ -69,7 +110,7 @@ export const ActionBar = (props: ActionBarProps) => {
       <Container fluid>
         <Nav>
           <Nav.Item onClick={openAddScriptDialog}>
-            <NavLinkWrapper>
+            <NavLinkWrapper title={<kbd>{`${CTRL_KEY}+1`}</kbd>}>
               <FaPlus className="me-1" /> New Script
             </NavLinkWrapper>
           </Nav.Item>
@@ -77,13 +118,13 @@ export const ActionBar = (props: ActionBarProps) => {
             <>
               {props.isExecuting ? (
                 <Nav.Item onClick={props.stop}>
-                  <NavLinkWrapper>
+                  <NavLinkWrapper title={<kbd>{`${CTRL_KEY}+2`}</kbd>}>
                     <FaStop className="me-1" /> Stop
                   </NavLinkWrapper>
                 </Nav.Item>
               ) : (
                 <Nav.Item onClick={props.execute}>
-                  <NavLinkWrapper>
+                  <NavLinkWrapper title={<kbd>{`${CTRL_KEY}+2`}</kbd>}>
                     <FaPlay className="me-1" /> Execute
                   </NavLinkWrapper>
                 </Nav.Item>
@@ -93,21 +134,8 @@ export const ActionBar = (props: ActionBarProps) => {
         </Nav>
         <Nav className="w-75 d-flex justify-content-end align-items-center">
           {props.activeTab ? (
-            <Nav.Item
-              className="me-2"
-              onClick={() => {
-                const script = props.scripts.find(
-                  script => script.id === props.activeTab?.scriptId
-                );
-                if (props.activeTab && script) {
-                  setScriptSetting({
-                    show: true,
-                    script: script,
-                  });
-                }
-              }}
-            >
-              <NavLinkWrapper>
+            <Nav.Item className="me-2" onClick={openScriptSettingDialog}>
+              <NavLinkWrapper title={<kbd>{`${CTRL_KEY}+3`}</kbd>}>
                 <FaCog className="me-1" /> Script Setting
               </NavLinkWrapper>
             </Nav.Item>
@@ -122,14 +150,12 @@ export const ActionBar = (props: ActionBarProps) => {
       </Container>
       <AddScriptDialog
         show={showAddScript}
-        openDialog={openAddScriptDialog}
         closeDialog={closeAddScriptDialog}
       />
       {scriptSetting.script ? (
         <ScriptSettingDialog
           show={scriptSetting.show}
           script={scriptSetting.script}
-          openDialog={openScriptSettingDialog}
           closeDialog={closeScriptSettingDialog}
         />
       ) : null}

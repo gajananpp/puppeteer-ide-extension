@@ -7,6 +7,8 @@ interface EditorProps {
   onChange: (value: string) => void;
   /** Monaco editor model */
   model: monaco.editor.ITextModel;
+  /** Custom actions */
+  actions: monaco.editor.IActionDescriptor[];
 }
 
 (self as any).MonacoEnvironment = {
@@ -55,8 +57,12 @@ export const Editor = (props: EditorProps) => {
   }, []);
 
   useEffect(() => {
+    props.actions.forEach(action => editor?.addAction(action));
+  }, [editor]);
+
+  useEffect(() => {
     editor?.setModel(props.model);
-  }, [props.model]);
+  }, [editor, props.model]);
 
   useEffect(() => {
     monaco.editor.setTheme(theme === 'light' ? 'vs' : 'vs-dark');

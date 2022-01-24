@@ -31,11 +31,11 @@ This extension is published on chrome web store.
 
 This extension will add an extra tab named "Puppeteer IDE" in browser's developer tools from where you can write and execute puppeteer scripts.
 
-You can access [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. 
+Use [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. 
 
 On clicking `Execute` button, the script will be executed on the inspected tab.
 
-The script will be auto saved as you are editing it.
+The script will be auto saved as it is being edited.
 
 ## Screenshots
 
@@ -69,10 +69,10 @@ This extension is standalone. **It doesn't make any external api calls**. You ca
 - [x] Add multi tab/script support.
 - [x] Add theme switch.
 - [x] Print unhandled errors in console tab of inspected window.
-- [ ] Binding keyboard shortcut with script for execution with devtools opened.
-- [ ] Suggesting xPath of currently selected element when `$0` typed in editor.
+- [x] Suggesting xPath of currently selected element when `$0` typed in editor.
+- [ ] Binding keyboard shortcut with script for execution without devtools opened.
 - [ ] Adjustable delay in execution.
-- [ ] Show used / available when chrome storage space.
+- [ ] Show used/available chrome storage space.
 
 
 ## FAQ

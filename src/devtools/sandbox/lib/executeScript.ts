@@ -73,6 +73,6 @@ export async function executeScript(
   } catch (e) {
     window.console.error(e);
     await close();
-    console.error((<Error>e).message);
+    console.error((<Error>e)?.message);
   }
 }

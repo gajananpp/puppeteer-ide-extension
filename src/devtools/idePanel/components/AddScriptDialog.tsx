@@ -8,7 +8,6 @@ import {IDEContext} from './IDEContext';
 
 interface AddScriptDialogProps {
   show: boolean;
-  openDialog: () => void;
   closeDialog: () => void;
 }
 
@@ -34,6 +33,7 @@ export const AddScriptDialog = (props: AddScriptDialogProps) => {
         <Form id="add-script-modal">
           <Form.Control
             autoFocus
+            type="text"
             placeholder="Script Name"
             onChange={evt => setScriptTitle(evt.target.value)}
           />

@@ -9,7 +9,7 @@ export const ThemeSwitch = () => {
 
   return (
     <>
-      <span>
+      <span className="me-2">
         <FaMoon />
       </span>{' '}
       <Form.Check

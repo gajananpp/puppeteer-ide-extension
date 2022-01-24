@@ -15,6 +15,7 @@ import {
   extensionStateReducer,
   Script,
 } from './extensionReducer';
+import {getElementSelector} from './utils/getElementSelector';
 
 export const initialScript = `
 await page.goto('https://wikipedia.org')
@@ -125,6 +126,70 @@ function App() {
   };
 
   /**
+   * Get selected element's selector
+   * @returns selector for current selected element or null
+   */
+  const elementSelectorSuggestor = (): Promise<string> => {
+    return new Promise(resolve => {
+      // replacing `exports.` with '' as tsc adds it while compiling
+      chrome.devtools.inspectedWindow.eval(
+        `
+      var getElementSelector = ${getElementSelector
+        .toString()
+        .replace(/(\w+\.)(?=getElementSelector)/, '')}
+      $0 ? getElementSelector($0) : ''
+      `,
+        (result, error) => {
+          error?.value ? resolve('') : resolve(result as string);
+        }
+      );
+    });
+  };
+
+  /**
+   * Registers suggestions provider for editor
+   */
+  const registerSuggestionsProvider = () => {
+    monaco.languages.registerCompletionItemProvider('javascript', {
+      provideCompletionItems: async function (model, position) {
+        const word = model.getWordUntilPosition(position);
+        const range = {
+          startLineNumber: position.lineNumber,
+          endLineNumber: position.lineNumber,
+          startColumn: word.startColumn,
+          endColumn: word.endColumn,
+        };
+        return {
+          suggestions: [
+            {
+              label: '"$0"',
+              kind: monaco.languages.CompletionItemKind.Value,
+              documentation: 'Get selector of currently selected element',
+              insertText: `"${await elementSelectorSuggestor()}"`,
+              range: range,
+            },
+          ],
+        };
+      },
+    });
+  };
+
+  /**
+   * Registers type definitions for editor
+   */
+  const registerTypeDefs = () => {
+    monaco.languages.typescript.javascriptDefaults.addExtraLib(puppeteerTypes);
+  };
+
+  /**
+   * Custom actions provider for editor
+   * @returns Action dispatcher
+   */
+  const editorActionProvider = () => {
+    return [];
+  };
+
+  /**
    * Save state changes to `chrome.storage`
    */
   const saveExtensionState = async () => {
@@ -181,8 +246,9 @@ function App() {
 
   useEffect(() => {
     connectPort();
-    monaco.languages.typescript.javascriptDefaults.addExtraLib(puppeteerTypes);
     getExtensionState();
+    registerTypeDefs();
+    registerSuggestionsProvider();
   }, []);
 
   useEffect(() => {
@@ -270,6 +336,7 @@ function App() {
                 value: value,
               })
             }
+            actions={editorActionProvider()}
             model={activeTab.model}
           />
         ) : null}

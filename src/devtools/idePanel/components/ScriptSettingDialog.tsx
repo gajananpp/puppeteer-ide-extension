@@ -10,7 +10,6 @@ import {Script} from '../extensionReducer';
 interface ScriptSettingDialogProps {
   script: Script;
   show: boolean;
-  openDialog: () => void;
   closeDialog: () => void;
 }
 
@@ -34,6 +33,7 @@ export const ScriptSettingDialog = (props: ScriptSettingDialogProps) => {
         <Form>
           <Form.Control
             autoFocus
+            type="text"
             placeholder="Script Name"
             defaultValue={props.script.name}
             onChange={evt =>
