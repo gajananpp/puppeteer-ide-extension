@@ -13,7 +13,7 @@ A standalone extension to write and execute puppeteer scripts from browser's dev
 [Build From Source](#build-from-source) •
 [Privacy](#privacy) •
 [Todo](#todo) •
-[FAQs](#faq)
+[FAQs](#faqs)
 
 <img src="assets/pptr-ide-extension.gif" alt="Demo GIF" width="800"/>
 
@@ -39,15 +39,15 @@ The script will be auto saved as it is being edited.
 
 ## Screenshots
 
+Using `$0` :-
+![Using $0 to get selector](assets/screenshots/$0-usage.gif)
+
 Dark theme :- 
 ![Dark theme](assets/screenshots/screen-1.png)
 
 
 Light theme :- 
 ![Light theme](assets/screenshots/screen-2.png)
-
-Using `$0` :-
-![Using $0 to get selector](assets/screenshots/$0-usage.gif)
 
 
 ## Build From Source
@@ -78,7 +78,7 @@ This extension is standalone. **It doesn't make any external api calls**. You ca
 - [ ] Show used/available chrome storage space.
 
 
-## FAQ
+## FAQs
 
 **Q: Does this extension have any external dependency ?**
 <br>
