@@ -5,7 +5,7 @@
 ![lint](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/lint.yml/badge.svg) 
 ![build](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/build.yml/badge.svg) 
 
-A standalone extension to develop, test and execute puppeteer scripts from browser's developer tools.
+A standalone extension to write and execute puppeteer scripts from browser's developer tools.
 
 [Installation](#installation) •
 [Usage](#usage) •
@@ -15,7 +15,7 @@ A standalone extension to develop, test and execute puppeteer scripts from brows
 [Todo](#todo) •
 [FAQs](#faq)
 
-<img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800"/>
+<img src="assets/pptr-ide-extension.gif" alt="Demo GIF" width="800"/>
 
 
 </div>
@@ -40,11 +40,14 @@ The script will be auto saved as it is being edited.
 ## Screenshots
 
 Dark theme :- 
-![Dark theme](assets/screenshots/screen-1.webp)
+![Dark theme](assets/screenshots/screen-1.png)
 
 
 Light theme :- 
-![Light theme](assets/screenshots/screen-2.webp)
+![Light theme](assets/screenshots/screen-2.png)
+
+Using `$0` :-
+![Using $0 to get selector](assets/screenshots/$0-usage.gif)
 
 
 ## Build From Source
