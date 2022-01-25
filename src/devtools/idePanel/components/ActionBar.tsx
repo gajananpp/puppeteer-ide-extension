@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Nav from 'react-bootstrap/Nav';
-import NavBar from 'react-bootstrap/NavBar';
+import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -101,7 +101,7 @@ export const ActionBar = (props: ActionBarProps) => {
   };
 
   return (
-    <NavBar
+    <Navbar
       variant={theme}
       className={`pt-0 pb-0 ${
         theme === 'dark' ? 'action-bar-dark' : 'action-bar-light'
@@ -159,6 +159,6 @@ export const ActionBar = (props: ActionBarProps) => {
           closeDialog={closeScriptSettingDialog}
         />
       ) : null}
-    </NavBar>
+    </Navbar>
   );
 };
