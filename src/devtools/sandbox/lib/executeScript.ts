@@ -57,9 +57,13 @@ export async function executeScript(
   const [page] = await browser.pages();
 
   const close = async () => {
-    if (!page.isClosed()) {
-      await page.close();
-      await browser.close();
+    try {
+      if (!page.isClosed()) {
+        await page.close();
+        await browser.close();
+      }
+    } catch (e) {
+      null;
     }
   };
 
@@ -69,5 +73,6 @@ export async function executeScript(
   } catch (e) {
     window.console.error(e);
     await close();
+    console.error((<Error>e)?.message);
   }
 }

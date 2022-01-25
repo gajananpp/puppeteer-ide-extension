@@ -1,15 +1,14 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import * as monaco from 'monaco-editor';
+import {IDEContext} from './IDEContext';
 
 interface EditorProps {
-  /** on editor value change handler */
+  /** On editor value change handler */
   onChange: (value: string) => void;
-  /** extra lib type definitions file contents */
-  extraTypeDefs?: string[];
-  /** editor theme */
-  theme?: 'light' | 'dark';
-  /** default value to show in editor */
-  defaultValue: string;
+  /** Monaco editor model */
+  model: monaco.editor.ITextModel;
+  /** Custom actions */
+  actions: monaco.editor.IActionDescriptor[];
 }
 
 (self as any).MonacoEnvironment = {
@@ -22,7 +21,6 @@ interface EditorProps {
 
 /**
  * VS Code's monaco editor as a react component.
- * Editor's theme will be inherited from browser's devtools theme.
  * Click [here](https://github.com/microsoft/monaco-editor) for more info about monaco-editor
  *
  * @param props - {@link EditorProps}
@@ -30,21 +28,16 @@ interface EditorProps {
  */
 export const Editor = (props: EditorProps) => {
   const editorContainer = useRef<HTMLDivElement>(null);
-
   const [editor, setEditor] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null);
 
+  const {theme} = useContext(IDEContext);
+
   useEffect(() => {
     if (editorContainer.current) {
-      props.extraTypeDefs?.forEach(typeDef => {
-        monaco.languages.typescript.javascriptDefaults.addExtraLib(typeDef);
-        monaco.editor.createModel(typeDef, 'javascript');
-      });
-
       const editor = monaco.editor.create(editorContainer.current, {
-        value: props.defaultValue?.trim().length ? props.defaultValue : '',
-        language: 'javascript',
-        theme: props.theme === 'light' ? 'vs' : 'vs-dark',
+        model: props.model,
+        theme: theme === 'light' ? 'vs' : 'vs-dark',
       });
       setEditor(editor);
       editor.onDidChangeModelContent(() => props.onChange(editor.getValue()));
@@ -52,8 +45,8 @@ export const Editor = (props: EditorProps) => {
       const windowResizeHandler = () => {
         editor.layout();
       };
-      window.addEventListener('resize', windowResizeHandler);
 
+      window.addEventListener('resize', windowResizeHandler);
       return () => {
         window.removeEventListener('resize', windowResizeHandler);
         editor.dispose();
@@ -64,11 +57,16 @@ export const Editor = (props: EditorProps) => {
   }, []);
 
   useEffect(() => {
-    // update only once
-    if (editor && !editor.getValue().trim().length) {
-      editor.setValue(props.defaultValue);
-    }
-  }, [props.defaultValue]);
+    props.actions.forEach(action => editor?.addAction(action));
+  }, [editor]);
+
+  useEffect(() => {
+    editor?.setModel(props.model);
+  }, [editor, props.model]);
+
+  useEffect(() => {
+    monaco.editor.setTheme(theme === 'light' ? 'vs' : 'vs-dark');
+  }, [theme]);
 
   return <div id="editor" ref={editorContainer}></div>;
 };

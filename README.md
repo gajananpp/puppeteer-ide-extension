@@ -5,16 +5,17 @@
 ![lint](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/lint.yml/badge.svg) 
 ![build](https://github.com/gajananpp/puppeteer-ide-extension/actions/workflows/build.yml/badge.svg) 
 
-A standalone extension to develop, test and execute puppeteer scripts from browser's developer tools.
+A standalone extension to write and execute puppeteer scripts from browser's developer tools.
 
 [Installation](#installation) •
 [Usage](#usage) •
 [Screenshots](#screenshots) •
-[Privacy](#privacy) •
 [Build From Source](#build-from-source) •
-[FAQs](#faq)
+[Privacy](#privacy) •
+[Todo](#todo) •
+[FAQs](#faqs)
 
-<img src="assets/pptr-ide-extension.webp" alt="Demo GIF" width="800"/>
+<img src="assets/pptr-ide-extension.gif" alt="Demo GIF" width="800"/>
 
 
 </div>
@@ -30,22 +31,23 @@ This extension is published on chrome web store.
 
 This extension will add an extra tab named "Puppeteer IDE" in browser's developer tools from where you can write and execute puppeteer scripts.
 
-You can access [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. 
+Use [page](https://pptr.dev/#?product=Puppeteer&version=v13.0.0&show=api-class-page) instance variable directly for the tab in which developer tools is opened. 
 
 On clicking `Execute` button, the script will be executed on the inspected tab.
 
-The script will be auto saved as you are editing it.
+The script will be auto saved as it is being edited.
 
 ## Screenshots
 
-The editor will take the theme of developer tools. [Here is a guide](https://developer.chrome.com/docs/devtools/customize/dark-theme/) which shows how to customize developer tool's theme.
+Using `$0` :-
+![Using $0 to get selector](assets/screenshots/$0-usage.gif)
 
 Dark theme :- 
-![Dark theme](assets/screenshots/screen-1.webp)
+![Dark theme](assets/screenshots/screen-1.png)
 
 
 Light theme :- 
-![Light theme](assets/screenshots/screen-2.webp)
+![Light theme](assets/screenshots/screen-2.png)
 
 
 ## Build From Source
@@ -65,8 +67,18 @@ This will output extension in dist folder which you can load in your browser by 
 ## Privacy
 This extension is standalone. **It doesn't make any external api calls**. You can inspect network of page/extension and source code in this repo.
 
+## Todo
 
-## FAQ
+- [x] Add multi tab/script support.
+- [x] Add theme switch.
+- [x] Print unhandled errors in console tab of inspected window.
+- [x] Suggesting xPath of currently selected element when `$0` typed in editor.
+- [ ] Binding keyboard shortcut with script for execution without devtools opened.
+- [ ] Adjustable delay in execution.
+- [ ] Show used/available chrome storage space.
+
+
+## FAQs
 
 **Q: Does this extension have any external dependency ?**
 <br>

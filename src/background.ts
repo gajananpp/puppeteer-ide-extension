@@ -66,7 +66,6 @@ class DebuggerHandler {
 
   transport: ExtensionDebuggerTransport;
   tabId: number;
-
   commands: {command: any; response: any}[];
   events: any[];
 
@@ -91,7 +90,6 @@ class DebuggerHandler {
     this.tabId = tabId;
     this.transport = transport;
     this.transport.delay = 0.05 * 1000;
-
     this.commands = [];
     this.events = [];
 
@@ -128,7 +126,6 @@ class DebuggerHandler {
         tabId: this.tabId,
       };
       port?.postMessage(executionEvent);
-
       console.log('CDP LOGS');
       console.log({
         commands: this.commands,
@@ -138,7 +135,6 @@ class DebuggerHandler {
 
     this._incomingMessageHandler = this._incomingMessageHandler.bind(this);
     port?.onMessage.addListener(this._incomingMessageHandler);
-
     const executionEvent: ExecutionEvent = {
       type: 'executionStarted',
       tabId: this.tabId,
@@ -158,7 +154,6 @@ class DebuggerHandler {
     if (message.type === 'cdpCommand') {
       // pass command to chrome.debugger
       this.transport.send(message.command);
-
       this.commands.push({
         command: JSON.parse(message.command),
         response: {},
